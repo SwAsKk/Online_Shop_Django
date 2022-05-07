@@ -26,8 +26,10 @@
 
 
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
-    <div class="continer">
-      <a href="#" class="navbar-brand">Sushi Man</a>
+    <div class="container">
+      <a href="#" class="navbar-brand">
+        <img src="{% static 'C:\Users\levso\Desktop\Sushiman\project\static\images\logo.png' %}" width="10%" height="10%" alt="">
+      </a>
       <button
         type="button"
         class="navbar-toggler"
@@ -70,28 +72,33 @@
 
     </div>
   </div>
+  <br>
 
   <!-- Main Content Area-->
-  <div class="container m-5 d-grid gap-5">
-    <div class="p-5 border">
-      <p>
-        Here is some text. Hello World! Hello Again!
-      </p>
+  <div class="container-fluid d-flex flex-row flex-wrap justify-content-evenly">
+    <div class="card text-center" style="width: 18rem;">
+      <img class="card-img-top" src="{% static 'C:\Users\levso\Desktop\Sushiman\project\static\images\pizza.jpg' %}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Пицца</h5>
+      </div>
     </div>
-    <div class="p-5 border">
-      <p>
-        Here is some text. Hello World! Hello Again!
-      </p>
+    <div class="card text-center" style="width: 18rem;">
+      <img class="card-img-top" src="{% static 'C:\Users\levso\Desktop\Sushiman\project\static\images\rolls.jpg' %}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Роллы</h5>
+      </div>
     </div>
-    <div class="p-5 border">
-      <p>
-        Here is some text. Hello World! Hello Again!
-      </p>
+    <div class="card text-center" style="width: 18rem;">
+      <img class="card-img-top" src="{% static 'C:\Users\levso\Desktop\Sushiman\project\static\images\sushi.jpg' %}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Суши</h5>
+      </div>
     </div>
-    <div class="p-5 border">
-      <p>
-        Here is some text. Hello World! Hello Again!
-      </p>
+    <div class="card text-center" style="width: 18rem;">
+      <img class="card-img-top" src="{% static 'C:\Users\levso\Desktop\Sushiman\project\static\images\wok.jpg' %}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Лапша Вок</h5>
+      </div>
     </div>
   </div>
 
