@@ -28,7 +28,7 @@
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
     <div class="container">
       <a href="#" class="navbar-brand">
-        <img src="{% static 'C:\Users\levso\Desktop\Sushiman\project\static\images\logo.png' %}" width="10%" height="10%" alt="">
+        Sushiman
       </a>
       <button
         type="button"
@@ -91,7 +91,7 @@
     <div class="card text-center" style="width: 18rem;">
       <img class="card-img-top" src="{% static 'C:\Users\levso\Desktop\Sushiman\project\static\images\sushi.jpg' %}" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">Суши</h5>
+        <a class="btn btn-primary stretched-link" href="#">Суши</a>
       </div>
     </div>
     <div class="card text-center" style="width: 18rem;">
@@ -108,11 +108,24 @@
 
     window.addEventListener('scroll', function(){
       if(window.pageYOffset >100){
-        nav.classList.add('bg-dark', 'shadow');
+        nav.classList.add('bg-dark', 'shadow-5-strong');
       }else{
-        nav.classList.remove('bg-dark', 'shadow');
+        nav.classList.remove('bg-dark', 'shadow-5-strong');
       }
     });
   </script>
+
+  <style>
+    .card:hover{
+      text-shadow: none !important;
+      box-sizing: border-box !important;
+      cursor: pointer !important;
+      transition: all 0.3s ease !important;
+      -webkit-transform: scale(1.1) !important;
+      -ms-transform: scale(1.1) !important;
+      transform: scale(1.1) !important;
+      z-index: 2;
+    }
+  </style>
 </body>
 </html>
