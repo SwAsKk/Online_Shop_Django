@@ -25,6 +25,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 
+<!--Navigation bar-->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
     <div class="container">
       <a href="#" class="navbar-brand">
@@ -60,49 +61,51 @@
             </li>
           </ul>
         </div>
-        
-
       </div>
     </div>
   </nav>
+<!--Navigation bar-->
 
+<!--Banner-->
   <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
     <div class="content text-center">
       
 
     </div>
   </div>
+<!--Banner-->
   <br>
 
   <!-- Main Content Area-->
   <div class="container-fluid d-flex flex-row flex-wrap justify-content-evenly">
     <div class="card text-center" style="width: 18rem;">
-      <img class="card-img-top" src="{% static 'C:\Users\levso\Desktop\Sushiman\project\static\images\pizza.jpg' %}" alt="Card image cap">
+      <img class="card-img-top" src="{% static 'C:\Users\levso\Desktop\Sushiman\project\static\images\pizza.jpg' %}" alt="Card image cap" style="max-width: 500px; max-height: 500px; object-fit: cover;">
       <div class="card-body">
         <h5 class="card-title">Пицца</h5>
       </div>
     </div>
     <div class="card text-center" style="width: 18rem;">
-      <img class="card-img-top" src="{% static 'C:\Users\levso\Desktop\Sushiman\project\static\images\rolls.jpg' %}" alt="Card image cap">
+      <img class="card-img-top" src="{% static 'C:\Users\levso\Desktop\Sushiman\project\static\images\rolls.jpg' %}" alt="Card image cap" style="max-width: 500px; max-height: 500px; object-fit: cover;">
       <div class="card-body">
         <h5 class="card-title">Роллы</h5>
       </div>
     </div>
     <div class="card text-center" style="width: 18rem;">
-      <img class="card-img-top" src="{% static 'C:\Users\levso\Desktop\Sushiman\project\static\images\sushi.jpg' %}" alt="Card image cap">
+      <img class="card-img-top" src="{% static 'C:\Users\levso\Desktop\Sushiman\project\static\images\sushi.jpg' %}" alt="Card image cap" style="max-width: 500px; max-height: 500px; object-fit: cover;">
       <div class="card-body">
         <a class="btn btn-primary stretched-link" href="#">Суши</a>
       </div>
     </div>
     <div class="card text-center" style="width: 18rem;">
-      <img class="card-img-top" src="{% static 'C:\Users\levso\Desktop\Sushiman\project\static\images\wok.jpg' %}" alt="Card image cap">
+      <img class="card-img-top" src="{% static 'C:\Users\levso\Desktop\Sushiman\project\static\images\wok.jpg' %}" alt="Card image cap" style="max-width: 500px; max-height: 500px; object-fit: cover;">
       <div class="card-body">
         <h5 class="card-title">Лапша Вок</h5>
       </div>
     </div>
   </div>
+<!-- Main Content Area-->
 
-
+<!--Navbar changing color-->
   <script>
     var nav = document.querySelector('nav');
 
@@ -114,7 +117,10 @@
       }
     });
   </script>
+<!--Navbar changing color-->
 
+
+<!--Cards changing size when hover-->
   <style>
     .card:hover{
       text-shadow: none !important;
@@ -127,5 +133,21 @@
       z-index: 2;
     }
   </style>
+<!--Cards changing size when hover-->
+
+
+<!--Footer-->
+<footer class="text-muted py-5">
+  <div class="container">
+    <p class="float-end mb-1">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="mb-1">Album example is © Bootstrap, but please download and customize it for yourself!</p>
+    <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="/docs/5.0/getting-started/introduction/">getting started guide</a>.</p>
+  </div>
+</footer>
+<!--Footer-->
+
+
 </body>
 </html>
