@@ -21,6 +21,10 @@ urlpatterns = [
     #index page
     path('', views.index),
 
+    
+    path('baked/',    views.baked),
+
+
 
     
 ]

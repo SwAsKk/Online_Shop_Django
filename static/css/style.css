@@ -11,3 +11,9 @@
     height: 100px;
     object-fit: cover;
 }
+
+.menu{
+    font-family: 'Oswald', sans-serif;
+    color: chartreuse;
+
+}
