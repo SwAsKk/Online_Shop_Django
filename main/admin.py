@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ClassicSet, BakedSet, ComboSet
+from .models import *
 
 
 
