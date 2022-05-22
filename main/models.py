@@ -267,3 +267,440 @@ class Pizza(models.Model):
         verbose_name = 'Пицца'
         verbose_name_plural = 'Пицца'
 
+
+class BakedSets(models.Model):
+    name = models.CharField(
+        verbose_name='Название',
+        max_length= 30,
+        null= False,
+        blank = False,
+    )
+
+    price = models.IntegerField(
+        verbose_name= 'Цена',
+        null= False,
+        blank = False,
+    )
+
+    compound = models.CharField(
+        verbose_name= 'Состав',
+        null = False,
+        blank = False,
+        max_length= 200,
+    )
+
+    weight = models.IntegerField(
+        verbose_name= 'Вес',
+        null= False,
+        blank = False,
+    )
+
+    def get_absolute_url(self):
+        return reverse('bakedroll_details_url', kwargs = {'id': self.id})
+
+    def __str__(self):
+        return '{} - {}'.format(self.id, self.name, self.price, self.compound, self.weight)
+
+    class Meta:
+        verbose_name = 'Запечённый ролл'
+        verbose_name_plural = 'Запечённые роллы'
+
+
+class Sets(models.Model):
+    name = models.CharField(
+        verbose_name='Название',
+        max_length= 30,
+        null= False,
+        blank = False,
+    )
+
+    price = models.IntegerField(
+        verbose_name= 'Цена',
+        null= False,
+        blank = False,
+    )
+
+    compound = models.CharField(
+        verbose_name= 'Состав',
+        null = False,
+        blank = False,
+        max_length= 200,
+    )
+
+    weight = models.IntegerField(
+        verbose_name= 'Вес',
+        null= False,
+        blank = False,
+    )
+
+    def get_absolute_url(self):
+        return reverse('set_details_url', kwargs = {'id': self.id})
+
+    def __str__(self):
+        return '{} - {}'.format(self.id, self.name, self.price, self.compound, self.weight)
+
+    class Meta:
+        verbose_name = 'Набор'
+        verbose_name_plural = 'Наборы'
+
+
+class Tempured(models.Model):
+    name = models.CharField(
+        verbose_name='Название',
+        max_length= 30,
+        null= False,
+        blank = False,
+    )
+
+    price = models.IntegerField(
+        verbose_name= 'Цена',
+        null= False,
+        blank = False,
+    )
+
+    compound = models.CharField(
+        verbose_name= 'Состав',
+        null = False,
+        blank = False,
+        max_length= 200,
+    )
+
+    weight = models.IntegerField(
+        verbose_name= 'Вес',
+        null= False,
+        blank = False,
+    )
+
+    def get_absolute_url(self):
+        return reverse('tempured_details_url', kwargs = {'id': self.id})
+
+    def __str__(self):
+        return '{} - {}'.format(self.id, self.name, self.price, self.compound, self.weight)
+
+    class Meta:
+        verbose_name = 'Темпур'
+        verbose_name_plural = 'Темпура'
+
+
+
+class Soup(models.Model):
+    name = models.CharField(
+        verbose_name='Название',
+        max_length= 30,
+        null= False,
+        blank = False,
+    )
+
+    price = models.IntegerField(
+        verbose_name= 'Цена',
+        null= False,
+        blank = False,
+    )
+
+    compound = models.CharField(
+        verbose_name= 'Состав',
+        null = False,
+        blank = False,
+        max_length= 200,
+    )
+
+    weight = models.IntegerField(
+        verbose_name= 'Вес',
+        null= False,
+        blank = False,
+    )
+
+    def get_absolute_url(self):
+        return reverse('soup_details_url', kwargs = {'id': self.id})
+
+    def __str__(self):
+        return '{} - {}'.format(self.id, self.name, self.price, self.compound, self.weight)
+
+    class Meta:
+        verbose_name = 'Суп'
+        verbose_name_plural = 'Супы'
+
+
+class HotAndSalads(models.Model):
+    name = models.CharField(
+        verbose_name='Название',
+        max_length= 30,
+        null= False,
+        blank = False,
+    )
+
+    price = models.IntegerField(
+        verbose_name= 'Цена',
+        null= False,
+        blank = False,
+    )
+
+    compound = models.CharField(
+        verbose_name= 'Состав',
+        null = False,
+        blank = False,
+        max_length= 200,
+    )
+
+    weight = models.IntegerField(
+        verbose_name= 'Вес',
+        null= False,
+        blank = False,
+    )
+
+    def get_absolute_url(self):
+        return reverse('hot_details_url', kwargs = {'id': self.id})
+
+    def __str__(self):
+        return '{} - {}'.format(self.id, self.name, self.price, self.compound, self.weight)
+
+    class Meta:
+        verbose_name = 'Горячее и салаты'
+        verbose_name_plural = 'Горячее и салаты'
+
+
+class MiniRolls(models.Model):
+    name = models.CharField(
+        verbose_name='Название',
+        max_length= 30,
+        null= False,
+        blank = False,
+    )
+
+    price = models.IntegerField(
+        verbose_name= 'Цена',
+        null= False,
+        blank = False,
+    )
+
+    compound = models.CharField(
+        verbose_name= 'Состав',
+        null = False,
+        blank = False,
+        max_length= 200,
+    )
+
+    weight = models.IntegerField(
+        verbose_name= 'Вес',
+        null= False,
+        blank = False,
+    )
+
+    def get_absolute_url(self):
+        return reverse('mini_details_url', kwargs = {'id': self.id})
+
+    def __str__(self):
+        return '{} - {}'.format(self.id, self.name, self.price, self.compound, self.weight)
+
+    class Meta:
+        verbose_name = 'Мини ролл'
+        verbose_name_plural = 'Мини роллы'
+
+
+class MagRolls(models.Model):
+    name = models.CharField(
+        verbose_name='Название',
+        max_length= 30,
+        null= False,
+        blank = False,
+    )
+
+    price = models.IntegerField(
+        verbose_name= 'Цена',
+        null= False,
+        blank = False,
+    )
+
+    compound = models.CharField(
+        verbose_name= 'Состав',
+        null = False,
+        blank = False,
+        max_length= 200,
+    )
+
+    weight = models.IntegerField(
+        verbose_name= 'Вес',
+        null= False,
+        blank = False,
+    )
+
+    def get_absolute_url(self):
+        return reverse('mag_details_url', kwargs = {'id': self.id})
+
+    def __str__(self):
+        return '{} - {}'.format(self.id, self.name, self.price, self.compound, self.weight)
+
+    class Meta:
+        verbose_name = 'Маг ролл'
+        verbose_name_plural = 'Маг роллы'
+
+class Vegan(models.Model):
+    name = models.CharField(
+        verbose_name='Название',
+        max_length= 30,
+        null= False,
+        blank = False,
+    )
+
+    price = models.IntegerField(
+        verbose_name= 'Цена',
+        null= False,
+        blank = False,
+    )
+
+    compound = models.CharField(
+        verbose_name= 'Состав',
+        null = False,
+        blank = False,
+        max_length= 200,
+    )
+
+    weight = models.IntegerField(
+        verbose_name= 'Вес',
+        null= False,
+        blank = False,
+    )
+
+    def get_absolute_url(self):
+        return reverse('vegan_details_url', kwargs = {'id': self.id})
+
+    def __str__(self):
+        return '{} - {}'.format(self.id, self.name, self.price, self.compound, self.weight)
+
+    class Meta:
+        verbose_name = 'Вег меню'
+        verbose_name_plural = 'Вег меню'
+
+class Deserts(models.Model):
+    name = models.CharField(
+        verbose_name='Название',
+        max_length= 30,
+        null= False,
+        blank = False,
+    )
+
+    price = models.IntegerField(
+        verbose_name= 'Цена',
+        null= False,
+        blank = False,
+    )
+
+    compound = models.CharField(
+        verbose_name= 'Состав',
+        null = False,
+        blank = False,
+        max_length= 200,
+    )
+
+    weight = models.IntegerField(
+        verbose_name= 'Вес',
+        null= False,
+        blank = False,
+    )
+
+    def get_absolute_url(self):
+        return reverse('deserts_details_url', kwargs = {'id': self.id})
+
+    def __str__(self):
+        return '{} - {}'.format(self.id, self.name, self.price, self.compound, self.weight)
+
+    class Meta:
+        verbose_name = 'Десерт'
+        verbose_name_plural = 'Десерты'
+
+
+class Drinks(models.Model):
+    name = models.CharField(
+        verbose_name='Название',
+        max_length= 30,
+        null= False,
+        blank = False,
+    )
+
+    price = models.IntegerField(
+        verbose_name= 'Цена',
+        null= False,
+        blank = False,
+    )
+
+    compound = models.CharField(
+        verbose_name= 'Состав',
+        null = False,
+        blank = False,
+        max_length= 200,
+    )
+
+    weight = models.IntegerField(
+        verbose_name= 'Вес',
+        null= False,
+        blank = False,
+    )
+
+    def get_absolute_url(self):
+        return reverse('drink_details_url', kwargs = {'id': self.id})
+
+    def __str__(self):
+        return '{} - {}'.format(self.id, self.name, self.price, self.compound, self.weight)
+
+    class Meta:
+        verbose_name = 'Напиток'
+        verbose_name_plural = 'Напитки'
+
+class SushiStuff(models.Model):
+    name = models.CharField(
+        verbose_name='Название',
+        max_length= 30,
+        null= False,
+        blank = False,
+    )
+
+    price = models.IntegerField(
+        verbose_name= 'Цена',
+        null= False,
+        blank = False,
+    )
+
+    compound = models.CharField(
+        verbose_name= 'Состав',
+        null = False,
+        blank = False,
+        max_length= 200,
+    )
+
+    weight = models.IntegerField(
+        verbose_name= 'Вес',
+        null= False,
+        blank = False,
+    )
+
+    def get_absolute_url(self):
+        return reverse('stuff_details_url', kwargs = {'id': self.id})
+
+    def __str__(self):
+        return '{} - {}'.format(self.id, self.name, self.price, self.compound, self.weight)
+
+    class Meta:
+        verbose_name = 'Все для суши'
+        verbose_name_plural = 'Все для суши'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
