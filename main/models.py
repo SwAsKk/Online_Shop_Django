@@ -4,6 +4,7 @@ from django.db import models
 from django.shortcuts import reverse
 
 class ClassicSet(models.Model):
+    image = models.ImageField(upload_to='static\images', null = True)
     name = models.CharField(
         verbose_name='Название',
         max_length= 30,
