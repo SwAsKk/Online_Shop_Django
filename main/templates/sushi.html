@@ -34,8 +34,8 @@
 <!--Navigation bar-->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
     <div class="container">
-      <a href="#" class="navbar-brand">
-        Sushiman
+      <a href="/" class="navbar-brand">
+        <img src="{% static 'images\logo.png' %}" alt="" width="100" height="40">
       </a>
       <button
         type="button"
@@ -132,6 +132,10 @@
       transform: scale(1.1) !important;
       z-index: 2;
     }
+    
+  .container-fluid{
+    gap: 25px;
+  }
   </style>
 <!--Cards changing size when hover-->
 <br>

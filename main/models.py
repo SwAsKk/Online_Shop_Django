@@ -144,8 +144,8 @@ class Sushi(models.Model):
         blank = False,
     )
 
-    def get_absolute_url(self):
-        return reverse('sushi_details_url', kwargs = {'id': self.id})
+    #def get_absolute_url(self):
+    #   return reverse('sushi_details_url', kwargs = {'id': self.id})
 
     def __str__(self):
         return '{} - {}'.format(self.id, self.name, self.price, self.compound, self.weight)
