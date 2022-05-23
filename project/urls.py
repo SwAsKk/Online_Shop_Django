@@ -21,8 +21,24 @@ urlpatterns = [
     #index page
     path('', views.index),
 
-    
+    #Отображение страниц с товарами
     path('baked/',    views.baked),
+    path('sushi/',    views.sushi),
+    path('rolls/',    views.rolls),
+    path('sets/',    views.sets),
+    path('tempured/',    views.tempured),
+    path('wok/',    views.wok),
+    path('soup/',    views.soup),
+    path('hotandsalads/',    views.hotandsalads),
+    path('minirolls/',    views.minirolls),
+    path('magrolls/',    views.magrolls),
+    path('vegan/',    views.vegan),
+    path('deserts/',    views.deserts),
+    path('drinks/',    views.drinks),
+    path('stuff/',    views.stuff),
+    path('pizza/',    views.pizza),
+
+
 
 
 
