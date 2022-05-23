@@ -112,3 +112,4 @@ def pizza(request):
     ob = Pizza.objects.all()
     c['pizza_list'] = ob
     return render(request, 'pizza.html', c)
+

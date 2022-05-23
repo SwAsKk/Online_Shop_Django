@@ -85,14 +85,14 @@
   <br>
 
   <div class="content text-center">
-    <p style="font-family: 'Oswald', sans-serif; font-size: 50px; background: transparent;">꧁МЕНЮ꧂</p>
+    <p style="font-family: 'Oswald', sans-serif; font-size: 50px; background: transparent;">꧁СУШИ꧂</p>
   </div>
 
   <br>
   <br>
   <!-- Main Content Area-->
   <div class="container-fluid d-flex flex-row flex-wrap justify-content-evenly">
-    {% for j in baked_list %}
+    {% for j in sushi_list %}
                 <div class="card mx-1 text-center"  style="width: 300px;">
                     <div class="card-body">
                     <h5 class="card-title">{{j.name}}</h5>
@@ -138,18 +138,27 @@
 <br>
 
 
-<!--Footer-->
-<footer class="text-muted py-5">
-  <div class="container">
-    <p class="float-end mb-1">
-      <a href="#">Back to top</a>
-    </p>
-    <p class="mb-1">Album example is © Bootstrap, but please download and customize it for yourself!</p>
-    <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="/docs/5.0/getting-started/introduction/">getting started guide</a>.</p>
-  </div>
-</footer>
-<!--Footer-->
 
+<!--Footer-->
+<footer class="blog-footer">
+    <div class="container">
+      <p class="float-end mb-1">
+        <a href="#">Наверх</a>
+      </p>
+      <p class="mb-1">©2021-2022 Сеть магазинов «Сушисан». Все права защищены.</p>
+    </div>
+  </footer>
+  <!--Footer-->
+
+<style>
+ .blog-footer{
+      padding: 2.5rem 0;
+      color: #999;
+      text-align: center;
+      background-color: #f9f9f9;
+      border-top: 0.05rem solid #e5e5e5;
+    }
+</style>
 
 </body>
 </html>
