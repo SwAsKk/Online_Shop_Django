@@ -10,6 +10,7 @@
   <!--Подключение css bootstrap-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{% static 'C:\Users\levso\Desktop\Sushiman\project\static\css\style.css' %}">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
     .banner-image{
@@ -31,6 +32,7 @@
   <!--Подключение js bootstrap-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 
 <!--Navigation bar-->
@@ -93,101 +95,101 @@
   <!-- Main Content Area-->
   <div class="container-fluid d-flex flex-row flex-wrap justify-content-evenly ">
     
-    <div class="card text-center" style="width: 18rem;">
+    <div class="card text-center" style="width: 18rem;" data-aos="zoom-in" >
       <img class="card-img-top" src="{% static 'images\Sushi.jpg' %}" alt="Card image cap" style="max-width: 500px; max-height: 500px; object-fit: cover;">
       <div class="card-body">
         <a class="btn btn-transparent stretched-link" href="/sushi/">Суши</a>
       </div>
     </div>
-    <div class="card text-center" style="width: 18rem;">
+    <div class="card text-center" style="width: 18rem;" data-aos="zoom-in">
       <img class="card-img-top" src="{% static 'images\Rolls.jpg' %}" alt="Card image cap" style="max-width: 500px; max-height: 500px; object-fit: cover;">
       <div class="card-body">
         <a class="btn btn-transparent stretched-link" href="/rolls/">Роллы</a>
       </div>
     </div>
-    <div class="card text-center" style="width: 18rem;">
+    <div class="card text-center" style="width: 18rem;" data-aos="zoom-in">
       <img class="card-img-top" src="{% static 'images/Baked.jpg' %}" alt="Card image cap" style="max-width: 500px; max-height: 500px;">
       <div class="card-body">
         <a class="btn btn-transparent stretched-link" href="/baked/">Запечённые роллы</a>
       </div>
     </div>
-    <div class="card text-center" style="width: 18rem;">
+    <div class="card text-center" style="width: 18rem;" data-aos="zoom-in">
       <img class="card-img-top" src="{% static 'images\Sets.jpg' %}" alt="Card image cap" style="max-width: 500px; max-height: 500px; object-fit: cover;">
       <div class="card-body">
         <a class="btn btn-transparent stretched-link" href="/sets/">Наборы</a>
       </div>
     </div>
-    <div class="card text-center" style="width: 18rem;">
+    <div class="card text-center" style="width: 18rem;" data-aos="zoom-in">
       <img class="card-img-top" src="{% static 'images\Tempured.jpg' %}" alt="Card image cap" style="max-width: 500px; max-height: 500px; object-fit: cover;">
       <div class="card-body">
         <a class="btn btn-transparent stretched-link" href="/tempured/">Темпура</a>
       </div>
     </div>
 
-    <div class="card text-center" style="width: 18rem;">
+    <div class="card text-center" style="width: 18rem;" data-aos="zoom-in">
       <img class="card-img-top" src="{% static 'images\Wok.jpg' %}" alt="Card image cap" style="max-width: 500px; max-height: 500px; object-fit: cover;">
       <div class="card-body">
         <a class="btn btn-transparent stretched-link" href="/wok/">Лапша wok</a>
       </div>
     </div>
 
-    <div class="card text-center" style="width: 18rem;">
+    <div class="card text-center" style="width: 18rem;" data-aos="zoom-in">
       <img class="card-img-top" src="{% static 'images\Soups.jpg' %}" alt="Card image cap" style="max-width: 500px; max-height: 500px; object-fit: cover;">
       <div class="card-body">
         <a class="btn btn-transparent stretched-link" href="/soup/">Супы</a>
       </div>
     </div>
 
-    <div class="card text-center" style="width: 18rem;">
+    <div class="card text-center" style="width: 18rem;" data-aos="zoom-in">
       <img class="card-img-top" src="{% static 'images\HotAndSalads.jpg' %}" alt="Card image cap" style="max-width: 500px; max-height: 500px; object-fit: cover;">
       <div class="card-body">
         <a class="btn btn-transparent stretched-link" href="/hotandsalads/">Горячее и салаты</a>
       </div>
     </div>
 
-    <div class="card text-center" style="width: 18rem;">
+    <div class="card text-center" style="width: 18rem;" data-aos="zoom-in">
       <img class="card-img-top" src="{% static 'images\MiniRolls.jpg' %}" alt="Card image cap" style="max-width: 500px; max-height: 500px; object-fit: cover;">
       <div class="card-body">
         <a class="btn btn-transparent stretched-link" href="/minirolls/">Мини роллы</a>
       </div>
     </div>
 
-    <div class="card text-center" style="width: 18rem;">
+    <div class="card text-center" style="width: 18rem;" data-aos="zoom-in">
       <img class="card-img-top" src="{% static 'images\MagRolls.jpg' %}" alt="Card image cap" style="max-width: 500px; max-height: 500px; object-fit: cover;">
       <div class="card-body">
         <a class="btn btn-transparent stretched-link" href="/magrolls/">Маг роллы</a>
       </div>
     </div>
 
-    <div class="card text-center" style="width: 18rem;">
+    <div class="card text-center" style="width: 18rem;" data-aos="zoom-in">
       <img class="card-img-top" src="{% static 'images\Vegan.jpg' %}" alt="Card image cap" style="max-width: 500px; max-height: 500px; object-fit: cover;">
       <div class="card-body">
         <a class="btn btn-transparent stretched-link" href="/vegan/">Вегетарианское меню</a>
       </div>
     </div>
 
-    <div class="card text-center" style="width: 18rem;">
+    <div class="card text-center" style="width: 18rem;" data-aos="zoom-in">
       <img class="card-img-top" src="{% static 'images\Deserts.jpg' %}" alt="Card image cap" style="max-width: 500px; max-height: 500px; object-fit: cover;">
       <div class="card-body">
         <a class="btn btn-transparent stretched-link" href="/deserts/">Десерты</a>
       </div>
     </div>
 
-    <div class="card text-center" style="width: 18rem;">
+    <div class="card text-center" style="width: 18rem;" data-aos="zoom-in">
       <img class="card-img-top" src="{% static 'images\Drinks.jpg' %}" alt="Card image cap" style="max-width: 500px; max-height: 500px; object-fit: cover;">
       <div class="card-body">
         <a class="btn btn-transparent stretched-link" href="/drinks/">Напитки</a>
       </div>
     </div>
 
-    <div class="card text-center" style="width: 18rem;">
+    <div class="card text-center" style="width: 18rem;" data-aos="fade-in">
       <img class="card-img-top" src="{% static 'images\Souse.jpg' %}" alt="Card image cap" style="max-width: 500px; max-height: 500px; object-fit: cover;">
       <div class="card-body">
         <a class="btn btn-transparent stretched-link" href="/stuff/">Все для суши</a>
       </div>
     </div>
 
-    <div class="card text-center" style="width: 18rem;">
+    <div class="card text-center" style="width: 18rem;" data-aos="zoom-in">
       <img class="card-img-top" src="{% static 'images\Pizza.jpg' %}" alt="Card image cap" style="max-width: 500px; max-height: 500px; object-fit: cover;">
       <div class="card-body">
         <a class="btn btn-transparent stretched-link" href="/pizza/">Пицца</a>
@@ -274,6 +276,35 @@
     object-fit: cover;
   }
 </style>
+
+<script>
+  AOS.init();
+
+// You can also pass an optional settings object
+// below listed default settings
+AOS.init({
+  // Global settings:
+  disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+  startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+  initClassName: 'aos-init', // class applied after initialization
+  animatedClassName: 'aos-animate', // class applied on animation
+  useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+  disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+  debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+  throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+  
+
+  // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+  offset: 120, // offset (in px) from the original trigger point
+  delay: 0, // values from 0 to 3000, with step 50ms
+  duration: 1000, // values from 0 to 3000, with step 50ms
+  easing: 'ease', // default easing for AOS animations
+  once: false, // whether animation should happen only once - while scrolling down
+  mirror: false, // whether elements should animate out while scrolling past them
+  anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+
+});
+</script>
 
 
 </body>
