@@ -95,6 +95,7 @@
     {% for j in rolls_list %}
                 <div class="card mx-1 text-center"  style="width: 300px;">
                     <div class="card-body">
+                    <img class="card-img-top" src="{{ j.image.url }}" alt="Card image cap" style="max-width: 500px; max-height: 500px;">
                     <h5 class="card-title">{{j.name}}</h5>
                     <p class="card-text">{{j.price}} рублей</p>
                     <a href="{{j.get_absolute_url}}" class="btn btn-outline-secondary">Добавить в корзину</a>

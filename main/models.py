@@ -1,3 +1,4 @@
+from os import nice
 from pydoc import describe
 from tabnanny import verbose
 from django.db import models
@@ -43,6 +44,8 @@ class ClassicSet(models.Model):
 
 
 class ComboSet(models.Model):
+
+    image = models.ImageField(upload_to='static\images', null = True)
     name = models.CharField(
         verbose_name='Название',
         max_length= 30,
@@ -80,6 +83,8 @@ class ComboSet(models.Model):
         verbose_name_plural = 'Комбо сеты'
 
 class BakedSet(models.Model):
+
+    image = models.ImageField(upload_to='static\images', null = True)
     name = models.CharField(
         verbose_name='Название',
         max_length= 30,
@@ -118,6 +123,8 @@ class BakedSet(models.Model):
 
 
 class Sushi(models.Model):
+
+    image = models.ImageField(upload_to='static\images', null = True)
     name = models.CharField(
         verbose_name='Название',
         max_length= 30,
@@ -156,6 +163,8 @@ class Sushi(models.Model):
 
 
 class Rolls(models.Model):
+
+    image = models.ImageField(upload_to='static\images', null = True)
     name = models.CharField(
         verbose_name='Название',
         max_length= 30,
@@ -182,8 +191,8 @@ class Rolls(models.Model):
         blank = False,
     )
 
-    def get_absolute_url(self):
-        return reverse('rolls_details_url', kwargs = {'id': self.id})
+    #def get_absolute_url(self):
+     #   return reverse('rolls_details_url', kwargs = {'id': self.id})
 
     def __str__(self):
         return '{} - {}'.format(self.id, self.name, self.price, self.compound, self.weight)
@@ -194,6 +203,8 @@ class Rolls(models.Model):
 
 
 class Wok(models.Model):
+
+    image = models.ImageField(upload_to='static\images', null = True)
     name = models.CharField(
         verbose_name='Название',
         max_length= 30,
@@ -232,6 +243,8 @@ class Wok(models.Model):
 
 
 class Pizza(models.Model):
+
+    image = models.ImageField(upload_to='static\images', null = True)
     name = models.CharField(
         verbose_name='Название',
         max_length= 30,
@@ -240,10 +253,32 @@ class Pizza(models.Model):
     )
 
     price = models.IntegerField(
-        verbose_name= 'Цена',
+        verbose_name= 'Цена маленькая пицца',
         null= False,
         blank = False,
     )
+    priceS = models.IntegerField(
+        verbose_name='Цена маленькой пиццы',
+        default=100,
+        null=False,
+        blank=False
+    )
+    priceM =models.IntegerField(
+        verbose_name='Цена средней пиццы',
+        default=100,
+
+        null=False,
+        blank=False,
+    )
+
+    priceL = models.IntegerField(
+        verbose_name='Цена большой пиццы',
+        default=100,
+        null=False,
+        blank=False,
+    )
+    
+
 
     compound = models.CharField(
         verbose_name= 'Состав',
@@ -262,7 +297,7 @@ class Pizza(models.Model):
         return reverse('pizza_details_url', kwargs = {'id': self.id})
 
     def __str__(self):
-        return '{} - {}'.format(self.id, self.name, self.price, self.compound, self.weight)
+        return '{} - {}'.format(self.id, self.name, self.price, self.compound, self.weight,self.priceS,self.priceM,self.priceL)
 
     class Meta:
         verbose_name = 'Пицца'
@@ -270,6 +305,8 @@ class Pizza(models.Model):
 
 
 class BakedSets(models.Model):
+
+    image = models.ImageField(upload_to='static\images', null = True)
     name = models.CharField(
         verbose_name='Название',
         max_length= 30,
@@ -308,6 +345,8 @@ class BakedSets(models.Model):
 
 
 class Sets(models.Model):
+
+    image = models.ImageField(upload_to='static\images', null = True)
     name = models.CharField(
         verbose_name='Название',
         max_length= 30,
@@ -346,6 +385,8 @@ class Sets(models.Model):
 
 
 class Tempured(models.Model):
+
+    image = models.ImageField(upload_to='static\images', null = True)
     name = models.CharField(
         verbose_name='Название',
         max_length= 30,
@@ -385,6 +426,8 @@ class Tempured(models.Model):
 
 
 class Soup(models.Model):
+
+    image = models.ImageField(upload_to='static\images', null = True)
     name = models.CharField(
         verbose_name='Название',
         max_length= 30,
@@ -423,6 +466,8 @@ class Soup(models.Model):
 
 
 class HotAndSalads(models.Model):
+
+    image = models.ImageField(upload_to='static\images', null = True)
     name = models.CharField(
         verbose_name='Название',
         max_length= 30,
@@ -461,6 +506,8 @@ class HotAndSalads(models.Model):
 
 
 class MiniRolls(models.Model):
+
+    image = models.ImageField(upload_to='static\images', null = True)
     name = models.CharField(
         verbose_name='Название',
         max_length= 30,
@@ -499,6 +546,8 @@ class MiniRolls(models.Model):
 
 
 class MagRolls(models.Model):
+    
+    image = models.ImageField(upload_to='static\images', null = True)
     name = models.CharField(
         verbose_name='Название',
         max_length= 30,
@@ -525,8 +574,8 @@ class MagRolls(models.Model):
         blank = False,
     )
 
-    def get_absolute_url(self):
-        return reverse('mag_details_url', kwargs = {'id': self.id})
+    #def get_absolute_url(self):
+      #  return reverse('mag_details_url', kwargs = {'id': self.id})
 
     def __str__(self):
         return '{} - {}'.format(self.id, self.name, self.price, self.compound, self.weight)
@@ -536,6 +585,8 @@ class MagRolls(models.Model):
         verbose_name_plural = 'Маг роллы'
 
 class Vegan(models.Model):
+
+    image = models.ImageField(upload_to='static\images', null = True)
     name = models.CharField(
         verbose_name='Название',
         max_length= 30,
@@ -573,6 +624,8 @@ class Vegan(models.Model):
         verbose_name_plural = 'Вег меню'
 
 class Deserts(models.Model):
+
+    image = models.ImageField(upload_to='static\images', null = True)
     name = models.CharField(
         verbose_name='Название',
         max_length= 30,
@@ -611,6 +664,8 @@ class Deserts(models.Model):
 
 
 class Drinks(models.Model):
+
+    image = models.ImageField(upload_to='static\images', null = True)
     name = models.CharField(
         verbose_name='Название',
         max_length= 30,
@@ -648,6 +703,8 @@ class Drinks(models.Model):
         verbose_name_plural = 'Напитки'
 
 class SushiStuff(models.Model):
+
+    image = models.ImageField(upload_to='static\images', null = True)
     name = models.CharField(
         verbose_name='Название',
         max_length= 30,
