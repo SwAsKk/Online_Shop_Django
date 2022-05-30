@@ -24,7 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'cart',
+    'cart.apps.CartConfig',
     
     'admin_reorder',
     'admincolors',
@@ -123,4 +123,4 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
-
+CART_SESSION_ID ='cart'
