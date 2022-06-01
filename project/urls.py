@@ -3,7 +3,7 @@ project URL Configuration
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -20,6 +20,7 @@ urlpatterns = [
 
     #index page
     path('', views.index),
+    path('cart/', include('cart.urls', namespace='cart')),
 
     #Отображение страниц с товарами
     path('baked/',    views.baked),
@@ -37,6 +38,8 @@ urlpatterns = [
     path('drinks/',    views.drinks),
     path('stuff/',    views.stuff),
     path('pizza/',    views.pizza),
+
+    path('<int:id>/', views.ProductDetails.as_view(), name = 'product_details_url'),
 
 
 

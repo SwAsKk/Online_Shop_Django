@@ -7,6 +7,7 @@ from django.shortcuts import reverse
 
 
 class Product(models.Model):
+
     id = models.AutoField(
         primary_key=True,
 
@@ -65,8 +66,8 @@ class Product(models.Model):
         blank = False,
     )
 
-   # def get_absolute_url(self):
-     #   return reverse('product_details_url', kwargs = {'id': self.id})
+    def get_absolute_url(self):
+      return reverse('product_details_url', kwargs = {'id': self.id})
 
     def __str__(self):
         return '{} - {}'.format(self.id,self.image,self.type, self.name, self.price, self.compound, self.weight)

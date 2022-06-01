@@ -16,10 +16,13 @@ def base_context(request):
     context['user'] = request.user
     return context
 
+#начальная страница
 def index(request):
     return render(request, 'index.html')
 
 
+
+#Вьюхи для просмотра товаров по категориям меню с фильтрацией
 def baked(request):
     c = base_context(request)
     ob = Product.objects.filter(type="Запечённые роллы")
@@ -113,3 +116,9 @@ def pizza(request):
     c['pizza_list'] = ob
     return render(request, 'pizza.html', c)
 
+#Вьюхи для просмотра товаров по категориям меню с фильтрацией
+
+class ProductDetails(View):
+    def get(self,request,id):
+        product = Product.objects.get(id = id)
+        return render(request, 'product-details.html', context={'product':product})
