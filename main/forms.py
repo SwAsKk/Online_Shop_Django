@@ -1,5 +1,4 @@
 from pyexpat import model
-from turtle import position
 from unicodedata import name
 from django import forms
 
@@ -8,6 +7,3 @@ from django.contrib.auth.hashers import make_password
 
 from main.models import *
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
-
-
-

@@ -12,7 +12,8 @@ SECRET_KEY = 'k@ljl8t%c+#=podqqy$u(adb6c+i$4b1z9)93pih023e8j1(dx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.1.54', '192.168.1.59', '192.168.1.137']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1',
+                 '192.168.1.54', '192.168.1.59', '192.168.1.137']
 
 
 # Application definition
@@ -25,7 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'cart.apps.CartConfig',
-    
+
     'admin_reorder',
     'admincolors',
 ]
@@ -79,7 +80,7 @@ ADMIN_REORDER = (
     # Users, Groups
     {'app': 'auth', 'label': 'Авторизация',
         'models': ('auth.User', 'auth.Group', )
-    },
+     },
 )
 
 ADMIN_COLORS_BASE_THEME = 'Default'
@@ -93,10 +94,10 @@ ADMIN_COLORS = [
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
-    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',},
-    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator', },
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator', },
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator', },
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator', },
 ]
 
 
@@ -114,7 +115,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), ]
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
@@ -123,4 +124,6 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
-CART_SESSION_ID ='cart'
+CART_SESSION_ID = 'cart'
+SESSION_COOKIE_HTTPONLY = True
+SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
