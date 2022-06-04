@@ -102,7 +102,11 @@
                     <img class="card-img-top" src="{{ j.image.url }}" alt="Card image cap" style="max-width: 500px; max-height: 500px;">
                     <h5 class="card-title">{{j.name}}</h5>
                     <p class="card-text">{{j.price}} рублей</p>
-                    <a href="{{j.get_absolute_url}}" class="btn btn-outline-secondary">Добавить в корзину</a>
+                    <form action="{% url 'cart:cart_add' j.id%}" method="post">
+                      {{ cart_add_product_form }}
+                      {% csrf_token%}
+                      <input type="submit" value="Добавить в корзину">
+                    </form>
                     </div>
                 </div>
          {% endfor %}

@@ -3,6 +3,7 @@ from importlib.metadata import requires
 from subprocess import call
 from django.shortcuts import render
 from django.template import base, context
+from cart.forms import CartAddProductForm
 
 from main.models import *
 from main.forms import *
@@ -121,4 +122,6 @@ def pizza(request):
 class ProductDetails(View):
     def get(self,request,id):
         product = Product.objects.get(id = id)
-        return render(request, 'product-details.html', context={'product':product})
+        cart_product_form = CartAddProductForm()
+        return render(request, 'product-details.html', context={'product':product,
+            'cart_product_form': cart_product_form})

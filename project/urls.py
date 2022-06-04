@@ -41,8 +41,7 @@ urlpatterns = [
 
     path('<int:id>/', views.ProductDetails.as_view(), name = 'product_details_url'),
 
-
-
+   
 
 
     
