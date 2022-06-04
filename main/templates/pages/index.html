@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+{% endblock css %}
+
+{% block js %}
+{% endblock js %}
+
+{% block content %}
+{% include 'banner.html' %}
+
+<div class="content text-center">
+  <p class="display-4 my-4">{{ page_header }}</p>
+</div>
+
+<div class="container-fluid d-flex flex-row flex-wrap justify-content-evenly">
+  {% for category in categories %}
+  <div class="enlarge card text-center" style="width: 18rem;" data-aos="zoom-in">
+    <img class="card-img-top" src="{{ category.image.url }}" alt="{{ category.name }}" style="max-width: 500px; max-height: 500px; object-fit: cover;">
+    <div class="card-body">
+      <a class="btn btn-transparent stretched-link" href="{% url 'main_category' category.slug %}">{{ category.name }}</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock content %}

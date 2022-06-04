@@ -7,12 +7,23 @@ from .cart import Cart
 from .forms import CartAddProductForm
 
 
+def base_context(request):
+    context = dict()
+    context['user'] = request.user
+    context["site_name"] = "Sushiman"  # Строка перед | в title страницы
+    context["page_name"] = "Главная"  # Строка после |
+    context["page_header"] = ""  # Название страницы в display-3 стиле
+    return context
+
 # Create your views here.
+
+
 @require_POST
 def cart_add(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     form = CartAddProductForm(request.POST)
+    print(form.is_valid())
     if form.is_valid():
         cd = form.cleaned_data
         cart.add(
@@ -31,5 +42,10 @@ def cart_remove(request, product_id):
 
 
 def cart_detail(request):
-    cart = Cart(request)
-    return render(request, 'cart/detail.html', {'cart': cart})
+    c = base_context(request)
+
+    c["page_name"] = "Корзина"
+    c["page_header"] = "Корзина"
+    c["cart"] = Cart(request)
+
+    return render(request, 'cart/detail.html', c)

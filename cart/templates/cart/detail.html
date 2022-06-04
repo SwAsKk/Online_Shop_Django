@@ -1,251 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  {% load static %}
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sushiman</title>
+{% extends 'base.html' %}
+{% load static %}
 
-  <!--Подключение css bootstrap-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="{% static 'C:\Users\levso\Desktop\Sushiman\project\static\css\style.css' %}">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+{% block css %}
+{% endblock css %}
 
-  <style>
-    .banner-image{
-      background-image: url("{% static 'images\mainscr.jpg' %}") ;
-      width: 100%;
-      height: 100%;
+{% block js %}
+{% endblock js %}
 
-    }
-  </style>
-</head>
-<body>
+{% block content %}
+{% include 'banner.html' %}
 
-
-  <!--Подключение шрифта-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500&display=swap" rel="stylesheet">
-
-  <!--Подключение js bootstrap-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-
-<!--Navigation bar-->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
-    <div class="container">
-      <a href="#" class="navbar-brand">
-        <img src="{% static 'images\logo.png' %}" alt="" width="100" height="40">
-      </a>
-      <button
-        type="button"
-        class="navbar-toggler"
-        data-bs-target="$navbarNav"
-        data-bs-toggler ="collapse"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle Navbar"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <div class="mx-auto">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a href="#" class="nav-link text-white">Адреса</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link text-white">Акции</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link text-white">Новости</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link text-white">О компании</a>
-            </li>
-
-          </ul>
-
-        </div>
-      </div>
-    </div>
-
-  </nav>
-<!--Navigation bar-->
-
-<!--Banner-->
-  <div class="banner-image d-flex justify-content-center align-items-center">
-    <img src="{% static 'images\mainscr.jpg'%}" alt="" class="banner-image">
-
-  </div>
-<!--Banner-->
-  <br>
-  <br>
-  <br>
-
-  <div class="content text-center">
-    <p style="font-family: 'Oswald', sans-serif; font-size: 50px; background: transparent;">꧁Корзина꧂</p>
-  </div>
-
-  <br>
-  <br>
-<!-- Main Content Area-->
+<div class="content text-center">
+  <p class="display-4 my-4">{{ page_header }}</p>
+</div>
 
 <table class="cart">
   <thead>
-  <tr>
-    <th>Image</th>
-    <th>Product</th>
-    <th>Quantity</th>
-    <th>Remove</th>
-    <th>Unit Price</th>
-    <th>Price</th>
-  </tr>
+    <tr>
+      <th>Image</th>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Remove</th>
+      <th>Unit Price</th>
+      <th>Cost</th>
+    </tr>
   </thead>
   <tbody>
     {% for item in cart %}
-    {% with product=item.product %}
+    {% with item.product as product %}
     <tr>
       <td>
-        <a href = {{product.get_absolute_url}}>
-          <img src="{{product.image.url}}">
-        </a>
+        <img src="{{ product.image.url }}">
       </td>
-      <td>{{product.name}}</td>
-      <td>{{product.quantity}}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ item.quantity }}</td>
       <td>
-        <form action="{% url 'card:cart_remove' product.id %}" method="post">
-          <input type="submit" value="Remove">
-    {%csrf_token%}
+        <form action="{% url 'cart:cart_remove' product.id %}" method="post">
+          {% csrf_token %}
+          <input type="submit" value="Убрать">
         </form>
       </td>
-      <td class="num">Р {{item.price}}</td>
-      <td class="num">Р {{item.total_price}}</td>
+      <td class="num">{{ item.price }} ₽</td>
+      <td class="num">{{ item.cost }} ₽</td>
     </tr>
     {% endwith %}
     {% endfor %}
     <tr class="total">
       <td>Total</td>
       <td colspan="4"></td>
-      <td class="num">Р {{cart.get_total_price}}</td>
+      <td class="num">{{ cart.get_total_price }} ₽</td>
     </tr>
   </tbody>
 </table>
-
-
-<!-- Main Content Area-->
-
-<!--Navbar changing color-->
-  <script>
-    var nav = document.querySelector('nav');
-
-    window.addEventListener('scroll', function(){
-      if(window.pageYOffset >100){
-        nav.classList.add('bg-dark', 'shadow-5-strong');
-      }else{
-        nav.classList.remove('bg-dark', 'shadow-5-strong');
-      }
-    });
-  </script>
-<!--Navbar changing color-->
-
-
-<!--Cards changing size when hover-->
-  <style>
-    .btn{
-      font-family: 'Oswald', sans-serif;
-    }
-    .nav-item{
-      font-family: 'Oswald', sans-serif;
-    }
-    .nav-item:hover{
-      text-shadow: none !important;
-      box-sizing: border-box !important;
-      cursor: pointer !important;
-      transition: all 0.3s ease !important;
-      -webkit-transform: scale(1.1) !important;
-      -ms-transform: scale(1.1) !important;
-      transform: scale(1.1) !important;
-      z-index: 2;
-    }
-    .card:hover{
-      text-shadow: none !important;
-      box-sizing: border-box !important;
-      cursor: pointer !important;
-      transition: all 0.3s ease !important;
-      -webkit-transform: scale(1.1) !important;
-      -ms-transform: scale(1.1) !important;
-      transform: scale(1.1) !important;
-      z-index: 2;
-    }
-
-  </style>
-<!--Cards changing size when hover-->
-<br>
-<br>
-
-
-<!--Footer-->
-<footer class="blog-footer">
-  <div class="container">
-    <p class="float-end mb-1">
-      <a href="#">Наверх</a>
-    </p>
-    <p class="mb-1">©2021-2022 Сеть магазинов «Сушисан». Все права защищены.</p>
-  </div>
-</footer>
-<!--Footer-->
-<style>
-  .blog-footer{
-    padding: 2.5rem 0;
-    color: #999;
-    text-align: center;
-    background-color: #f9f9f9;
-    border-top: 0.05rem solid #e5e5e5;
-  }
-  .container-fluid{
-    gap: 27px;
-  }
-  .card-img-top{
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-  }
-</style>
-
-<script>
-  AOS.init();
-
-// You can also pass an optional settings object
-// below listed default settings
-AOS.init({
-  // Global settings:
-  disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-  startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-  initClassName: 'aos-init', // class applied after initialization
-  animatedClassName: 'aos-animate', // class applied on animation
-  useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-  disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-  debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-  throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-
-
-  // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-  offset: 120, // offset (in px) from the original trigger point
-  delay: 0, // values from 0 to 3000, with step 50ms
-  duration: 1000, // values from 0 to 3000, with step 50ms
-  easing: 'ease', // default easing for AOS animations
-  once: false, // whether animation should happen only once - while scrolling down
-  mirror: false, // whether elements should animate out while scrolling past them
-  anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-
-});
-</script>
-</body>
-</html>
+{% endblock content %}

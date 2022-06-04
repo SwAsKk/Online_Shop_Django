@@ -1,7 +1,7 @@
 """
-Django settings for project project.
+    Django settings for project project.
 """
-
+from django.contrib import messages
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -18,17 +18,21 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1',
 
 # Application definition
 INSTALLED_APPS = [
+    # Красивые штучки для admin
+    'django_static_fontawesome',
+    'django_static_jquery3',
+    'django_admin_global_sidebar',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main',
-    'cart.apps.CartConfig',
 
-    'admin_reorder',
-    'admincolors',
+    # Apps
+    'main',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -39,7 +43,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'admin_reorder.middleware.ModelAdminReorder',
 ]
 
 CSRF_COOKIE_SECURE = True
@@ -75,22 +78,8 @@ DATABASES = {
     }
 }
 
-# Django admin settings
-ADMIN_REORDER = (
-    # Users, Groups
-    {'app': 'auth', 'label': 'Авторизация',
-        'models': ('auth.User', 'auth.Group', )
-     },
-)
-
-ADMIN_COLORS_BASE_THEME = 'Default'
-ADMIN_COLORS = [
-    ('Default', []),
-    ('Lite', 'admincolors/css/lite.css'),
-    ('Dark Blue', 'admincolors/css/dark-blue.css'),
-    ('Gray', 'admincolors/css/gray.css'),
-    ('Grey', 'admincolors/css/gray.css'),
-]
+# Admin customization
+DJANGO_ADMIN_GLOBAL_SIDEBAR_MENUS = 'main.menus.get_simple_menus'
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -100,20 +89,18 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator', },
 ]
 
-
 # Internationalization
 LANGUAGE_CODE = 'ru-ru'
-TIME_ZONE = 'UTC'
-USE_I18N = True
-USE_L10N = True
+TIME_ZONE = 'Etc/GMT+3'
+USE_I18N = False
+USE_L10N = False
 USE_TZ = True
+THOUSAND_SEPARATOR = ' '
+USE_THOUSAND_SEPARATOR = True
 
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), ]
 
@@ -123,6 +110,15 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
+
+# Bootstrap toasts
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info-cus',
+    messages.INFO: 'alert-info-cus',
+    messages.SUCCESS: 'alert-success-cus',
+    messages.WARNING: 'alert-warning-cus',
+    messages.ERROR: 'alert-danger-cus',
+}
 
 CART_SESSION_ID = 'cart'
 SESSION_COOKIE_HTTPONLY = True
