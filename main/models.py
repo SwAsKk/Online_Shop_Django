@@ -75,7 +75,7 @@ class Product(models.Model):
     )
 
     def __str__(self):
-        return '{} - {} / {} {} руб. {}'.format(self.id, self.type.name, self.name, self.price, self.weight)
+        return '{} - {} / {} {} руб. {}'.format(self.id, self.category.name, self.name, self.price, self.weight)
 
     class Meta:
         verbose_name = 'Товар'

@@ -1,4 +1,11 @@
 var nav = document.querySelector('nav');
+window.addEventListener('scroll', function(){
+  if(window.pageYOffset >100){
+    nav.classList.add('bg-dark', 'shadow-5-strong');
+  }else{
+    nav.classList.remove('bg-dark', 'shadow-5-strong');
+  }
+});
 
 document.addEventListener('DOMContentLoaded', function() {
   AOS.init({
@@ -21,12 +28,4 @@ document.addEventListener('DOMContentLoaded', function() {
     mirror: false, // whether elements should animate out while scrolling past them
     anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
   });
-});
-
-window.addEventListener('scroll', function() {
-  if (window.pageYOffset > 100) {
-    nav.classList.add('bg-dark', 'shadow-5-strong');
-  } else {
-    nav.classList.remove('bg-dark', 'shadow-5-strong');
-  }
 });

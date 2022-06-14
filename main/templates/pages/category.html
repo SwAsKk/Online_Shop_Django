@@ -16,7 +16,7 @@
 
 <div class="container-fluid d-flex flex-row flex-wrap justify-content-evenly">
   {% for product in products %}
-  <div class="card mx-1 text-center" style="width: 300px;">
+  <div class="enlarge card mx-1 text-center" style="width: 300px;" data-aos="zoom-in">
     <div class="card-body">
       <img class="card-img-top" src="{{ product.image.url }}" alt="Фото {{ product.name }}" style="max-width: 500px; max-height: 500px;">
       <h5 class="card-title">{{ product.name }}</h5>
@@ -24,7 +24,7 @@
       <form action="{% url 'cart:cart_add' product.id %}" method="post">
         {{ form }}
         {% csrf_token%}
-        <input type="submit" value="Добавить в корзину">
+        <input type="submit" class="btn btn-light" value="Добавить в корзину">
       </form>
     </div>
   </div>

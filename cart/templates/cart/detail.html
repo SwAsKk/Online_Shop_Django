@@ -14,42 +14,45 @@
   <p class="display-4 my-4">{{ page_header }}</p>
 </div>
 
-<table class="cart">
+
+
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Image</th>
-      <th>Product</th>
-      <th>Quantity</th>
-      <th>Remove</th>
-      <th>Unit Price</th>
-      <th>Cost</th>
+      <th>Товар</th>
+      <th>Количество</th>
+      <th>Убрать</th>
+      <th>Цена</th>
+      <th>Общая стоимость</th>
     </tr>
   </thead>
   <tbody>
+    
     {% for item in cart %}
     {% with item.product as product %}
     <tr>
-      <td>
-        <img src="{{ product.image.url }}">
-      </td>
       <td>{{ product.name }}</td>
       <td>{{ item.quantity }}</td>
       <td>
         <form action="{% url 'cart:cart_remove' product.id %}" method="post">
           {% csrf_token %}
-          <input type="submit" value="Убрать">
+          <input type="submit" value="Убрать" class="btn btn-outline-danger">
         </form>
       </td>
       <td class="num">{{ item.price }} ₽</td>
       <td class="num">{{ item.cost }} ₽</td>
     </tr>
+    
     {% endwith %}
     {% endfor %}
     <tr class="total">
-      <td>Total</td>
-      <td colspan="4"></td>
+      <td>Сумма</td>
+      <td colspan="3"></td>
       <td class="num">{{ cart.get_total_price }} ₽</td>
     </tr>
+    
   </tbody>
 </table>
+
 {% endblock content %}
+
