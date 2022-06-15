@@ -4,7 +4,11 @@ from django.views.decorators.http import require_POST
 from main.models import *
 
 from .cart import Cart
-from .forms import CartAddProductForm
+from .forms import CITY_CHOICES, CartAddProductForm, OrderForm
+
+from django.core.mail import send_mail
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
 
 
 def base_context(request):
@@ -48,4 +52,33 @@ def cart_detail(request):
     c["page_header"] = "Корзина"
     c["cart"] = Cart(request)
 
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            data={
+                'name': form.cleaned_data['name'],
+                'phone': form.cleaned_data['phone'],
+                'city': form.cleaned_data['city'],
+                'adress': form.cleaned_data['adress'],
+                'change': form.cleaned_data['change'],
+                'email': form.cleaned_data['email'],
+                'cart': Cart(request),
+            }
+            if form.cleaned_data['city'] == 'spb':
+                html_body = render_to_string("mail.html", data)
+                msg = EmailMultiAlternatives (subject="Новый заказ!", from_email='sushiman.web@mail.ru', to=['sushiman.spb@mail.ru',])
+                msg.attach_alternative(html_body, "text/html")
+                msg.send()
+            elif form.cleaned_data['city'] == 'bal':
+                html_body = render_to_string("mail.html", data)
+                msg = EmailMultiAlternatives (subject="Новый заказ!", from_email='sushiman.web@mail.ru', to=['sushiman.msk@mail.ru',])
+                msg.attach_alternative(html_body, "text/html")
+                msg.send()
+            return redirect('/')
+
+
+    else:
+        form = OrderForm()
+    c['form'] = form
     return render(request, 'cart/detail.html', c)
+

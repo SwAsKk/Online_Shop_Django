@@ -123,3 +123,11 @@ MESSAGE_TAGS = {
 CART_SESSION_ID = 'cart'
 SESSION_COOKIE_HTTPONLY = True
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST= 'smtp.mail.ru'
+EMAIL_PORT = 465 #587 возможно если не будет работать
+EMAIL_HOST_USER = 'sushiman.web@mail.ru'
+EMAIL_HOST_PASSWORD ='zuYTRxzG7BhW9R0vytMG'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True

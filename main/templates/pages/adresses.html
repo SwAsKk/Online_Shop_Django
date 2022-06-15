@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+{% endblock css %}
+
+{% block js %}
+{% endblock js %}
+
+{% block content %}
+{% include 'banner.html' %}
+
+<div class="content text-center">
+  <p class="display-4 my-4">{{ page_header }}</p>
+</div>
+<div class="contend text-center">
+    <input type="button" class="btn btn-transparent btn-lg" onclick="history.back();" value="Меню &#10229;" style="    position: relative;
+    display: inline-block;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    border: 1px solid;
+    border-radius: 6px;
+    -webkit-appearance: none;
+    appearance: none;"/>
+    </div>
+    <br>
+    <br>
+
+<div class="content text-center">
+    <p style="font-family: 'Oswald', sans-serif; font-size: large;">Город Санкт-Петербург</p>
+    <p style="font-family: 'Oswald', sans-serif; font-size: medium;">ул.Русановская, д.11</p>
+    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A2b242140f1e4897b97121dfd3d6b2d900a40efdca9295c0a5ca2c238a6227b9a&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+</div>
+<br>
+<br>
+<div class="content text-center">
+    <p style="font-family: 'Oswald', sans-serif; font-size: large;">Город Балашиха</p>
+    <p style="font-family: 'Oswald', sans-serif; font-size: medium;">мкр. Авиаторов, бульвар Нестерова,4</p>
+    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa60fa9f6d7f8e2d8bb046a66de8b2b9f196a72fe3f184cc8ed39ec54a57e9f10&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+</div>
+{% endblock content %}

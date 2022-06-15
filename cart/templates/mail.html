@@ -1,0 +1,59 @@
+
+{% load static %}
+
+{% block css %}
+{% endblock css %}
+
+{% block js %}
+{% endblock js %}
+
+{% block content %}
+
+<div class="content text-center">
+  <p class="display-4 my-4">{{ page_header }}</p>
+</div>
+
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Товар</th>
+      <th>Количество</th>
+      <th>Цена</th>
+      <th>Общая стоимость</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    {% for item in cart %}
+    {% with item.product as product %}
+    <tr>
+      <td>{{ product.name }}</td>
+      <td>{{ item.quantity }}</td>
+      <td class="num">{{ item.price }} ₽</td>
+      <td class="num">{{ item.cost }} ₽</td>
+    </tr>
+    
+    {% endwith %}
+    {% endfor %}
+    <tr class="total">
+      <td>Сумма</td>
+      <td colspan="3"></td>
+      <td class="num">{{ cart.get_total_price }} ₽</td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+<p>Имя: {{ name }}</p>
+<p>Телефон: {{ phone }}</p>
+<p>Email: {{ email }}</p>
+<p>Город: {{ city }}</p>
+<p>Адрес доставки: {{ adress }}</p>
+<p>С какой суммы нужна будет сдача: {{ change }}</p>
+
+
+
+{% endblock content %}

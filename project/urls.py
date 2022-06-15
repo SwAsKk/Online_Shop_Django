@@ -23,6 +23,7 @@ urlpatterns = [
 
     # Cart pages
     path('cart/', include('cart.urls', namespace='cart')),
+    path('adresses/', views.adresses),
 
     # Отображение страниц с товарами
     path(r'category/<slug:category_slug>/', views.view_category, name="main_category"),

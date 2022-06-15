@@ -61,3 +61,34 @@
   transform: scale(1.1) !important;
   z-index: 2;
 }
+.cart:hover{
+  text-shadow: none !important;
+  box-sizing: border-box !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  -webkit-transform: scale(1.1) !important;
+  -ms-transform: scale(1.1) !important;
+  transform: scale(1.1) !important;
+  z-index: 2;
+}
+
+.msg{
+  display: block;
+}
+.msg{
+  border-color: #eae3d1;
+  background-color: #fff9e4;
+}
+
+.msg{
+  margin: 20px 0;
+  padding: 10px 15px;
+  border: 1px solid;
+  border-radius: 3px;
+}
+
+.textbox text, .textbox textarea {
+  padding: 10px 14px;
+  border: 1px solid #777;
+  border-radius: 3px;
+}

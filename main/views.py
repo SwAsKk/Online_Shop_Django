@@ -35,3 +35,9 @@ def view_category(request, category_slug):
     c['form'] = CartAddProductForm()
 
     return render(request, 'pages/category.html', c)
+
+def adresses(request):
+    c = base_context(request)
+    c["page_header"] = "Адреса"
+    c["page_name"] = "Адреса"
+    return render(request, 'pages/adresses.html', c)

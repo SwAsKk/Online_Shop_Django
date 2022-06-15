@@ -13,15 +13,34 @@
 <div class="content text-center">
   <p class="display-4 my-4">{{ page_header }}</p>
 </div>
-
+<div class="contend text-center">
+  <input type="button" class="btn btn-transparent btn-lg" onclick="history.back();" value="Меню &#10229;" style="    position: relative;
+  display: inline-block;
+  padding: 5px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  border: 1px solid;
+  border-radius: 6px;
+  -webkit-appearance: none;
+  appearance: none;"/>
+  </div>
+  <br>
+  <br>
 
 
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Товар</th>
+      <th></th>
+      <th>Продукт</th>
       <th>Количество</th>
-      <th>Убрать</th>
+      <th></th>
       <th>Цена</th>
       <th>Общая стоимость</th>
     </tr>
@@ -31,6 +50,9 @@
     {% for item in cart %}
     {% with item.product as product %}
     <tr>
+      <td>
+        <img src="{{ product.image.url }}" width="130px" height="100px">
+      </td>
       <td>{{ product.name }}</td>
       <td>{{ item.quantity }}</td>
       <td>
@@ -53,6 +75,46 @@
     
   </tbody>
 </table>
+<br>
+<div class="msg msg-inform" style="display:block; border-color: #c2adf1;
+background-color: #d8d1e8; 
+  margin: 20px 0;
+  padding: 10px 15px;
+  border: 1px solid;
+  border-radius: 3px; font-family: 'Oswald', sans-serif;">
+  <p class="text-center">Если у вас не получается оформить заказ или вам не перезвонили в течение 5 минут, пожалуйста, свяжитесь с ближайшей к вам точкой в разделе Адреса.</p>
+</div>
 
+<form class="form-contact contact_form" action="" method="post" id="contactForm">
+  {% csrf_token %}
+  <div class="textbox textfield" >
+    {{form.name }}
+    <br>
+  </div>
+  <div>
+    {{form.email}}
+    <br>
+  </div>
+  <div>
+    {{form.phone}}
+    <br>
+  </div>
+  <div>
+    {{form.city}}
+    <br>
+    <br>
+  </div>
+  <div>
+    {{form.adress}}
+    <br>
+  </div>
+  <div>
+    {{form.change}}
+    <br>
+  </div>
+  <div class="content text-center">
+    <button type="submit" class="btn btn-outline-warning btn-lg" >Оформить заказ!</button>
+  </div>
+</form>
 {% endblock content %}
 
