@@ -15,21 +15,22 @@
 </div>
 <div class="contend text-center">
 <input type="button" class="btn btn-transparent btn-lg" onclick="history.back();" value="Меню &#10229;" style="    position: relative;
-display: inline-block;
-padding: 5px 16px;
-font-size: 14px;
-font-weight: 500;
-line-height: 20px;
-white-space: nowrap;
-vertical-align: middle;
-cursor: pointer;
--webkit-user-select: none;
-user-select: none;
-border: 1px solid;
-border-radius: 6px;
--webkit-appearance: none;
-appearance: none;"/>
+    display: inline-block;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    border: 1px solid;
+    border-radius: 6px;
+    -webkit-appearance: none;
+    appearance: none;"/>
 </div>
+<br>
 <br>
 <br>
 
@@ -39,7 +40,10 @@ appearance: none;"/>
     <div class="card-body">
       <img class="card-img-top" src="{{ product.image.url }}" alt="Фото {{ product.name }}" style="max-width: 500px; max-height: 500px;">
       <h5 class="card-title">{{ product.name }}</h5>
+      <p class="cart-text">{{ product.compound }}</p>
+      <p class="cart text-muted">{{product.weight}} гр.</p>
       <p class="card-text">{{ product.price }} ₽</p>
+      
       <form action="{% url 'cart:cart_add' product.id %}" method="post">
         {{ form }}
         {% csrf_token%}
