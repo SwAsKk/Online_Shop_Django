@@ -3,17 +3,21 @@
 """
 from django.contrib import messages
 import os
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'k@ljl8t%c+#=podqqy$u(adb6c+i$4b1z9)93pih023e8j1(dx'
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['localhost', '127.0.0.1',
-                 '192.168.1.54', '192.168.1.59', '192.168.1.137']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1',]
 
 
 # Application definition
@@ -120,14 +124,14 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger-cus',
 }
 
-CART_SESSION_ID = 'cart'
+CART_SESSION_ID = env("CART_SESSION_ID")
 SESSION_COOKIE_HTTPONLY = True
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST= 'smtp.mail.ru'
-EMAIL_PORT = 465 #587 возможно если не будет работать
-EMAIL_HOST_USER = 'sushiman.web@mail.ru'
-EMAIL_HOST_PASSWORD ='zuYTRxzG7BhW9R0vytMG'
+EMAIL_PORT = env("EMAIL_PORT") #587 возможно если не будет работать
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD =env("EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True

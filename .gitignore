@@ -329,3 +329,11 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,django,python,macos,linux
+
+
+*.pyc
+__pycache__
+db.sqlite3
+/env
+*.env
+.vscode
